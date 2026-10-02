@@ -1,0 +1,21 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>hunch Geräte-ID</title>
+<style>body{font:-apple-system-body,system-ui;background:#f7f4eb;color:#0d0d0b;margin:0;padding:40px 24px;max-width:480px}.id{font-family:ui-monospace,SF Mono,monospace;font-size:15px;word-break:break-all;padding:16px;border:1px solid rgba(174,134,46,.4);border-radius:24px;background:#fffefa;margin-top:16px}button{display:block;width:100%;margin-top:12px;padding:16px;min-height:44px;border:1px solid rgba(174,134,46,.4);border-radius:28px;background:#fffefa;font:600 16px system-ui;color:#0d0d0b}small{font-family:ui-monospace,SF Mono,monospace;color:#5e584d;letter-spacing:.08em;font-size:12px}p{color:#5e584d;font-size:14px;line-height:1.45}[hidden]{display:none}</style>
+<h1 style="font-weight:700;letter-spacing:-.5px">hunch</h1><small>GERÄTE-ID · AD HOC</small>
+<div id="da" hidden>
+<div class="id" id="udid"></div><p id="info" class="m"></p>
+<button id="kop">ID kopieren</button><button id="tei">Weitergeben</button>
+<p>Schick diese ID an Dominik. Danach wird dein iPhone freigeschaltet und die App lässt sich installieren. Das Profil „Hunch Geräte-ID“ kannst du unter Einstellungen › Allgemein › VPN & Geräteverwaltung löschen.</p>
+</div>
+<div id="nein" hidden><p>Keine Geräte-ID empfangen. Öffne die Startseite auf dem iPhone in Safari und tippe auf „Mein Gerät zur Freischaltung melden“.</p></div>
+<script>
+var p=new URLSearchParams(location.hash.slice(1)),id=p.get('udid');
+if(id&&/^[0-9A-Fa-f-]{20,40}$/.test(id)){
+document.getElementById('da').hidden=false;
+document.getElementById('udid').textContent=id;
+document.getElementById('info').textContent=[p.get('produkt'),p.get('version')&&'iOS '+p.get('version')].filter(Boolean).join(' · ');
+document.getElementById('kop').onclick=function(){(navigator.clipboard?navigator.clipboard.writeText(id):Promise.reject()).then(function(){document.getElementById('kop').textContent='Kopiert'},function(){})};
+var t=document.getElementById('tei');
+if(navigator.share)t.onclick=function(){navigator.share({title:'Hunch Geräte-ID',text:id})};else t.hidden=true;
+history.replaceState(null,'',location.pathname);
+}else document.getElementById('nein').hidden=false;
+</script>
