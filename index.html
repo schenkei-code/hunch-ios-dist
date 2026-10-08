@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<title>hunch 251</title>
+<style>
+:root{
+  --ink:#0d0d0b;--ink-800:#25241f;--ivory:#f7f4eb;--ivory-50:#fffefa;
+  --stone:#716b5e;--stone-600:#5e584d;
+  --gold-300:#e7cf82;--gold-400:#d5ad4d;--gold-600:#8a6412;
+  --hairline:rgba(174,134,46,.16);--hairline-strong:rgba(174,134,46,.34);
+  --papier:linear-gradient(118deg,#fcfcfe 0%,#f1f2f5 42%,#f6f2ea 72%,#fbf7ef 100%);
+  --schatten:0 1px 1.5px rgba(0,0,0,.08),0 5px 12px rgba(0,0,0,.06),0 18px 32px rgba(0,0,0,.055);
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,monospace;
+  --text:var(--ink);--meta:var(--stone-600);--knopf-text:#4a3410;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ivory:#1a120d;--ivory-50:#251a12;
+    --hairline:#3e2e21;--hairline-strong:#55412f;
+    --papier:linear-gradient(118deg,#271c13 0%,#221811 46%,#251a12 100%);
+    --schatten:0 1px 1.5px rgba(0,0,0,.3),0 5px 12px rgba(0,0,0,.25),0 18px 32px rgba(0,0,0,.22);
+    --text:#f5efe3;--meta:#b7ab93;--gold-600:#e7cf82;
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0;padding:28px 16px calc(40px + env(safe-area-inset-bottom));
+  max-width:480px;margin-inline:auto;
+  font:17px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;
+  background:var(--ivory);color:var(--text);
+  -webkit-text-size-adjust:100%;
+}
+h1{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",system-ui,sans-serif;
+  font-size:40px;line-height:1;letter-spacing:-.8px;font-weight:700;margin:0 0 6px;white-space:nowrap;
+}
+.m{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--meta)}
+.m b{color:var(--text);font-weight:600}
+p{color:var(--meta);font-size:15px;line-height:1.55;margin:12px 0 0}
+p strong{color:var(--text);font-weight:600}
+.karte{
+  margin-top:20px;padding:20px;border-radius:24px;
+  background:var(--papier);border:1px solid var(--hairline);box-shadow:var(--schatten);
+}
+.karte > .m:first-child{display:block;margin-bottom:16px}
+a.kapsel{
+  display:flex;align-items:center;justify-content:center;
+  min-height:52px;padding:14px 24px;border-radius:999px;
+  font-size:18px;font-weight:600;text-decoration:none;
+  transition:transform 140ms cubic-bezier(.2,.8,.2,1);
+}
+a.kapsel:active{transform:scale(.98)}
+a.gold{
+  background:linear-gradient(135deg,#efcf6f,#c79a3a);
+  border:1px solid var(--gold-400);color:var(--knopf-text);
+  box-shadow:inset 0 1px rgba(255,255,255,.55),0 6px 16px rgba(190,140,46,.2);
+}
+a.leise{
+  background:transparent;border:1px solid var(--hairline-strong);
+  color:var(--text);font-size:16px;margin-top:12px;
+}
+.beleg{margin-top:18px;border-top:1px solid var(--hairline)}
+.beleg div{
+  display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  padding:9px 0;border-bottom:1px solid var(--hairline);
+  font-family:var(--mono);font-size:12px;letter-spacing:.06em;
+}
+.beleg span{color:var(--meta)}
+.beleg b{font-weight:600;color:var(--text);text-align:right;white-space:nowrap}
+section{margin-top:32px;padding-top:4px}
+section > .m{display:block;margin-bottom:2px}
+footer{
+  margin-top:44px;padding-top:14px;border-top:1px solid var(--hairline);
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--meta);
+}
+footer a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;color:var(--meta);text-decoration:none;border-bottom:1px solid var(--hairline-strong)}
+a:focus-visible{outline:2px solid var(--text);outline-offset:4px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:no-preference){
+  .auftritt{animation:auftritt 420ms cubic-bezier(.2,.8,.2,1) both}
+  @keyframes auftritt{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+}
+</style>
+</head>
+<body>
+
+<header class="auftritt">
+  <h1>hunch</h1>
+  <span class="m">AD HOC · BUILD 251 · OWNER-VERTEILUNG</span>
+</header>
+
+<div id="ios" hidden>
+  <div class="karte auftritt">
+    <span class="m">INSTALLATION · DIREKT VOM BESITZER</span>
+    <a class="kapsel gold" href="itms-services://?action=download-manifest&url=https://schenkei-code.github.io/hunch-ios-dist/manifest.plist">installieren</a>
+    <div class="beleg">
+      <div><span>version</span><b>1.6 · BUILD 251</b></div>
+      <div><span>stand</span><b>08.10.2026</b></div>
+      <div><span>größe</span><b>38,8 MB</b></div>
+    </div>
+    <p>Tippe auf „installieren“ und bestätige die Installationsanfrage von iOS. Dieser Download ist eine Ad-hoc-Testausgabe für registrierte Geräte. Bereitstellung, Installation und erfolgreicher Start sind getrennte Schritte; ein Start auf deinem iPhone ist damit nicht bestätigt.</p>
+  </div>
+
+  <section>
+    <span class="m">NEUES IPHONE</span>
+    <p>Dieser Build ist ad hoc signiert: Er installiert sich <strong>nur auf iPhones, die dafür registriert sind</strong>. Eine Integritätsmeldung belegt allein keine fehlende Registrierung. Auch Signatur, Profilgültigkeit oder Erreichbarkeit können die Installation verhindern. Für ein noch nicht registriertes Gerät kannst du die Registrierung anfragen:</p>
+    <a class="kapsel leise" id="freischalten" href="https://macbook-air-von-dominik.tail1c2c47.ts.net:10000/profil">Neues iPhone freischalten</a>
+    <p class="m" style="margin-top:10px">PRIVATER REGISTRIERUNGSDIENST · NUR IM BERECHTIGTEN PRIVATEN NETZ ERREICHBAR</p>
+    <p>Der Knopf lädt ein kleines Profil namens <strong>„Hunch Geräte-ID“</strong>, signiert mit Dominiks Entwickler-Zertifikat. Safari fragt „Zulassen?“ — zulassen, dann in die <strong>Einstellungen</strong> gehen: dort erscheint oben „Profil geladen“, zum Installieren antippen. Das Profil liest nur einmalig die Geräte-ID dieses iPhones und installiert sonst nichts; danach öffnet sich automatisch eine Seite mit deiner ID, die du an Dominik schickst, und du kannst das Profil wieder löschen.</p>
+    <p>Nach dem Freischalten dauert es noch kurz, bis der nächste Build dein iPhone enthält — dann klappt „installieren“ oben.</p>
+  </section>
+
+  <!-- Bestehender öffentlicher Einladungslink; kein bestimmter Build zugesagt. -->
+  <section id="testflight" data-testflight data-testflight-link="https://testflight.apple.com/join/xEn2bN4v">
+    <span class="m">TESTFLIGHT</span>
+    <p>Die öffentliche TestFlight-Einladung ist verfügbar. TestFlight zeigt die für dich freigegebene Beta und ihre Voraussetzungen; der Ad-hoc-Build 250 dieser Seite ist damit nicht als TestFlight-Ausgabe bestätigt.</p>
+    <a class="kapsel leise" id="testflight-knopf" href="https://testflight.apple.com/join/xEn2bN4v" rel="noopener noreferrer">TestFlight öffnen</a>
+  </section>
+</div>
+
+<div id="win" hidden>
+  <section>
+    <span class="m">WINDOWS</span>
+    <p>Testversion für Windows: <a style="color:var(--text)" href="https://github.com/schenkei-code/hunch-desktop-dist/releases/download/v1.0.0-test/Hunch-Windows.zip">Hunch-Windows.zip laden</a>, entpacken und <span style="font-family:var(--mono);font-size:14px">hunch.exe</span> starten. Windows warnt bei unbekanntem Herausgeber: „Weitere Informationen“, dann „Trotzdem ausführen“.</p>
+  </section>
+</div>
+
+<div id="sonst" hidden>
+  <section>
+    <span class="m">IPHONE NÖTIG</span>
+    <p>Öffne diese Seite auf dem iPhone in Safari, um Hunch zu installieren.</p>
+  </section>
+</div>
+
+<footer class="auftritt">
+  hunchagent.io&ensp;·&ensp;<a href="https://hunchagent.io/impressum/">Impressum</a>&ensp;·&ensp;<a href="https://hunchagent.io/privacy/">Datenschutz</a>
+</footer>
+
+<script>
+var u=navigator.userAgent,i=/iPhone|iPad|iPod/.test(u),h=location.hash.slice(1);
+document.getElementById(h==='ios'||h==='win'||h==='sonst'?h:i?'ios':/Windows/.test(u)?'win':'sonst').hidden=false;
+var tf=document.getElementById('testflight'),tk=document.getElementById('testflight-knopf');
+if(tf&&tk&&/^https:\/\/(testflight\.apple\.com|apps\.apple\.com)\//.test(tf.dataset.testflightLink||'')){tk.href=tf.dataset.testflightLink;tk.hidden=false;}
+// Der private Registrierungsdienst wird nur nach bewusstem Link-Tipp kontaktiert.
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<title>hunch Geräte-ID</title>
+<style>
+:root{
+  --ink:#0d0d0b;--ivory:#f7f4eb;--ivory-50:#fffefa;--stone-600:#5e584d;
+  --gold-400:#d5ad4d;
+  --hairline:rgba(174,134,46,.16);--hairline-strong:rgba(174,134,46,.34);
+  --papier:linear-gradient(118deg,#fcfcfe 0%,#f1f2f5 42%,#f6f2ea 72%,#fbf7ef 100%);
+  --schatten:0 1px 1.5px rgba(0,0,0,.08),0 5px 12px rgba(0,0,0,.06),0 18px 32px rgba(0,0,0,.055);
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,monospace;
+  --text:var(--ink);--meta:var(--stone-600);--knopf-text:#4a3410;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ivory:#1a120d;--ivory-50:#251a12;
+    --hairline:#3e2e21;--hairline-strong:#55412f;
+    --papier:linear-gradient(118deg,#271c13 0%,#221811 46%,#251a12 100%);
+    --schatten:0 1px 1.5px rgba(0,0,0,.3),0 5px 12px rgba(0,0,0,.25),0 18px 32px rgba(0,0,0,.22);
+    --text:#f5efe3;--meta:#b7ab93;
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0;padding:28px 16px calc(40px + env(safe-area-inset-bottom));
+  max-width:480px;margin-inline:auto;
+  font:17px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;
+  background:var(--ivory);color:var(--text);-webkit-text-size-adjust:100%;
+}
+h1{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",system-ui,sans-serif;
+  font-size:40px;line-height:1;letter-spacing:-.8px;font-weight:700;margin:0 0 6px}
+.m{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--meta)}
+p{color:var(--meta);font-size:15px;line-height:1.55;margin:12px 0 0}
+p strong{color:var(--text);font-weight:600}
+.karte{margin-top:20px;padding:20px;border-radius:24px;
+  background:var(--papier);border:1px solid var(--hairline);box-shadow:var(--schatten)}
+.karte > .m{display:block;margin-bottom:12px}
+.id{font-family:var(--mono);font-size:17px;line-height:1.5;letter-spacing:.04em;
+  word-break:break-all;color:var(--text);padding:4px 0 14px;border-bottom:1px solid var(--hairline)}
+.info{display:block;margin-top:10px}
+.kapsel{display:flex;align-items:center;justify-content:center;width:100%;
+  min-height:52px;padding:14px 24px;margin-top:12px;border-radius:999px;
+  font:600 17px -apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  text-decoration:none;cursor:pointer;
+  transition:transform 140ms cubic-bezier(.2,.8,.2,1)}
+.kapsel:active{transform:scale(.98)}
+.gold{background:linear-gradient(135deg,#efcf6f,#c79a3a);border:1px solid var(--gold-400);
+  color:var(--knopf-text);box-shadow:inset 0 1px rgba(255,255,255,.55),0 6px 16px rgba(190,140,46,.2)}
+.leise{background:transparent;border:1px solid var(--hairline-strong);color:var(--text);font-size:16px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){.kapsel{transition:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>hunch</h1>
+  <span class="m">GERÄTE-ID · AD HOC</span>
+</header>
+
+<div id="da" hidden>
+  <div class="karte">
+    <span class="m">DEIN IPHONE · EINMALIG AUSGELESEN</span>
+    <div class="id" id="udid"></div>
+    <span class="m info" id="info"></span>
+    <a class="kapsel gold" id="mail" href="">An Dominik schicken</a>
+    <button class="kapsel leise" id="kop" type="button">ID kopieren</button>
+    <button class="kapsel leise" id="tei" type="button" hidden>Weitergeben</button>
+  </div>
+  <p>Der Knopf öffnet eine fertige Nachricht mit deiner Geräte-ID — nur noch abschicken. Alternativ kopierst du die ID und schickst sie Dominik über <a style="color:var(--text)" href="https://t.me/Schenkeii">Telegram</a>.</p>
+  <p>Sobald dein iPhone freigeschaltet ist, dauert es noch kurz, bis der nächste Build es enthält — danach klappt „installieren“ auf der <a style="color:var(--text)" href="./">Startseite</a>. Das Profil „Hunch Geräte-ID“ kannst du jetzt unter <strong>Einstellungen → Allgemein → VPN&nbsp;&amp;&nbsp;Geräteverwaltung</strong> wieder löschen.</p>
+</div>
+
+<div id="nein" hidden>
+  <p>Keine Geräte-ID empfangen. Öffne die <a style="color:var(--text)" href="./">Startseite</a> auf dem iPhone in Safari und tippe dort auf „Neues iPhone freischalten“.</p>
+</div>
+
+<script>
+var p=new URLSearchParams(location.hash.slice(1)),id=p.get('udid');
+if(id&&(/^[0-9]{8}-[0-9A-F]{16}$/i.test(id)||/^[0-9A-F]{40}$/i.test(id))){
+  document.getElementById('da').hidden=false;
+  document.getElementById('udid').textContent=id;
+  var pr=p.get('produkt'),ve=p.get('version');
+  pr=(pr&&/^[A-Za-z0-9,]{1,20}$/.test(pr))?pr:'';
+  ve=(ve&&/^[0-9.]{1,12}$/.test(ve))?'iOS '+ve:'';
+  var info=[pr,ve].filter(Boolean).join(' · ');
+  document.getElementById('info').textContent=info.toUpperCase();
+  var text='Hunch Geräte-ID: '+id+(info?' ('+info+')':'');
+  document.getElementById('mail').href='mailto:dominikschenkel.business@gmail.com?subject='+encodeURIComponent('Hunch Geräte-ID')+'&body='+encodeURIComponent(text);
+  document.getElementById('kop').onclick=function(){
+    (navigator.clipboard?navigator.clipboard.writeText(id):Promise.reject()).then(function(){
+      document.getElementById('kop').textContent='Kopiert';
+    },function(){});
+  };
+  var t=document.getElementById('tei');
+  if(navigator.share){t.hidden=false;t.onclick=function(){navigator.share({title:'Hunch Geräte-ID',text:text});};}
+  history.replaceState(null,'',location.pathname);
+}else document.getElementById('nein').hidden=false;
+</script>
+</body>
+</html>
