@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="robots" content="noindex, nofollow">
+  <title>hunch · Vorschau 2.0</title>
+  <style>
+    :root { color-scheme: light dark; --paper: #fffefa; --ink: #171713; --muted: #5e584d; --line: #ddd5c2; }
+    @media (prefers-color-scheme: dark) {
+      :root { --paper: #171713; --ink: #fffefa; --muted: #ddd5c2; --line: #39372f; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.55 -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+    main { max-width: 480px; margin: 0 auto; padding: 56px 24px calc(32px + env(safe-area-inset-bottom)); }
+    h1 { margin: 0; font-size: 44px; line-height: 1.1; letter-spacing: -1px; white-space: nowrap; }
+    h2 { margin-top: 32px; font-size: 20px; }
+    p { color: var(--muted); }
+    .meta { font: 12px/1.7 ui-monospace, "SF Mono", monospace; letter-spacing: .04em; }
+    .install { display: flex; align-items: center; justify-content: center; min-height: 56px; margin: 28px 0 20px; padding: 12px 16px; border-radius: 999px; background: var(--ink); color: var(--paper); text-decoration: none; font-weight: 600; }
+    a:focus-visible { outline: 3px solid #bd8d24; outline-offset: 5px; }
+    .note { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 15px; }
+    footer { margin-top: 40px; border-top: 1px solid var(--line); padding-top: 12px; }
+    footer a { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>hunch</h1>
+    <p class="meta">VORSCHAU 2.0 · BUILD 281<br>20.10.2026 · AD-HOC-TESTVERSION</p>
+    <h2>Dein Update ist hier.</h2>
+    <p>Ein übersichtlicheres Menü und aufgeräumte Einstellungen für die Tagesbegleitung.</p>
+    <a class="install" href="itms-services://?action=download-manifest&amp;url=https%3A%2F%2Fschenkei-code.github.io%2Fhunch-ios-dist%2Fmanifest281.plist">Hunch installieren</a>
+    <p>Öffne diese Seite auf deinem iPhone in Safari. Tippe auf „Hunch installieren“ und bestätige die Anfrage.</p>
+    <p>Die bisherige App bitte <strong>nicht löschen</strong>. Dieser Build ist für bereits registrierte Geräte signiert.</p>
+    <p class="note"><strong>Noch eine Vorschau:</strong> Das Speichern der neuen Tagesbegleitung benötigt auch eine aktualisierte Hunch-Runtime auf deinem Computer. Dieses Paket aktualisiert nur die iPhone-App. Eine Einstellungsgruppe kann sich beim ersten Tippen noch sporadisch nicht öffnen.</p>
+    <footer class="meta">
+      <a href="https://hunchagent.io/privacy/">Datenschutz</a>
+      · <a href="https://hunchagent.io/impressum/">Impressum</a>
+    </footer>
+  </main>
+</body>
+</html>
